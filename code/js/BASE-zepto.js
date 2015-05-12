@@ -5,7 +5,7 @@
  * revision: 1.0
  * createdate: 2014-09-17 17:22
  * author: lc
- * description: 
+ * description: use zepto.js
  * ---------------------------------------------
  */
 var BASE = BASE || {};
@@ -293,6 +293,7 @@ BASE.COM.Cardview = (function() {
 				} else{
 					this.moved = true;
 					this._effectMove(distance);
+					console.log(1)
 				}
 			}
 		},
@@ -360,48 +361,33 @@ BASE.COM.Cardview = (function() {
 				//console.log(this.direction)
 				translateY = 0;
 			}
-			/**
-			 * 设置缩放
-			 * */
-			//console.log(this.options.scale);
-			if(this.options.scale != 1){
-				scale = (this.wrapperSize - absDistance) / this.wrapperSize;        //moveing scale
-				scale = 'scale(' + (scale > this.options.scale ? scale : this.options.scale) + ')' +  this.translateZ;
-			}else{
-				scale = '';
-			}
-			//console.log(!!this.activePage, scale)
+			scale = (this.wrapperSize - absDistance) / this.wrapperSize;
+			scale = scale > this.options.scale ? scale : this.options.scale;
 			for(var i = 0; i < this.length; i++){
 				utils.removeClass(this.cards[i], 'app-active');
+				//this.cards[i].style[utils.style.transitionDuration] = '0ms';
 			}
 			if(this.currentPage){
+				//console.log(!!this.activePage)
 				this.currentPage.style[utils.style.transformOrigin] = origin;
 				if(this.activePage && translateY){
 					utils.addClass(this.activePage, 'app-active');
 					this.activePage.style[utils.style.transform] = 'translateY(' + translateY + 'px)' + this.translateZ;
-					this.currentPage.style[utils.style.transform] = scale;
+					this.currentPage.style[utils.style.transform] = 'scale(' + scale + ')' + this.translateZ;
 				} else{
-					this.currentPage.style[utils.style.transform] = !!!scale ? 'translateY(' + distance + 'px) ' : scale;
+					this.currentPage.style[utils.style.transform] = 'scale(' + scale + ') translateY(' + distance + 'px)' + this.translateZ;
 				}
 			}
 		},
 		_effectEnd     : function(distance) {
 			//console.log(this.endY)
 			var move = this.move = Math.abs(distance) >= this.options.distance;
-			var scale, enScale;
-			if(this.options.scale != 1){
-				scale = 'scale(' + this.options.scale + ')';
-				enScale = true;
-			}else{
-				scale = '';
-				enScale = false;
-			}
 			if(this.currentPage){
 				this.currentPage.style[utils.style.transitionDuration] = this.options.duration + 'ms';
 				if(this.activePage){
 					this.activePage.style[utils.style.transitionDuration] = this.options.duration + 'ms';
 					if(move){
-						this.currentPage.style[utils.style.transform] = scale + this.translateZ;
+						this.currentPage.style[utils.style.transform] = 'scale(' + this.options.scale + ')' + this.translateZ;
 						this.activePage.style[utils.style.transform] = 'translateY(0)' + this.translateZ;
 						utils.addClass(this.activePage, 'app-current');
 						this.current = this.active;
@@ -409,18 +395,18 @@ BASE.COM.Cardview = (function() {
 					} else{
 						this.activePage.style[utils.style.transform] = 'translateY(' + this.direction * -100 + '%)' + this.translateZ;
 						utils.addClass(this.currentPage, 'app-current');
-						enScale && (this.currentPage.style[utils.style.transform] = 'scale(1)' + this.translateZ);
+						this.currentPage.style[utils.style.transform] = 'scale(1)' + this.translateZ;
 					}
 					this.activePage.addEventListener('transitionend', this);
 					this.activePage.addEventListener('webkitTransitionEnd', this);
 					this.activePage.addEventListener('oTransitionEnd', this);
 					this.activePage.addEventListener('MSTransitionEnd', this);
 				} else{
+					this.currentPage.style[utils.style.transform] = 'scale(1)' + this.translateZ;
 					this.currentPage.addEventListener('transitionend', this);
 					this.currentPage.addEventListener('webkitTransitionEnd', this);
 					this.currentPage.addEventListener('oTransitionEnd', this);
 					this.currentPage.addEventListener('MSTransitionEnd', this);
-					enScale && (this.currentPage.style[utils.style.transform] = 'scale(1)' + this.translateZ);
 				}
 				//console.log(this.activePage)
 			}
@@ -445,8 +431,8 @@ BASE.COM.Cardview = (function() {
 						if(this.move){
 							utils.removeClass(this.cards[i], 'app-current');
 						}
-						this.cards[i].style[utils.style.transform] = 'none';
-						this.cards[i].style[utils.style.transitionDuration] = '0ms';
+						//this.cards[i].style[utils.style.transform] = 'none';
+						//this.cards[i].style[utils.style.transitionDuration] = '0ms';
 					}
 				}
 				this.activePage = null;

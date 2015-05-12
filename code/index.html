@@ -10,48 +10,49 @@
 		function loaded() {
 			var app = BASE.COM.Cardview.init({
 				startPage  : 3,
-				loopPage : false,
-				//scale    : 1,
-				callback : function(a) {
+				//				scale    : 1,
+				loopPage   : false,
+//				translateZ : false,
+				callback   : function(a) {
 					//					console.log(a)
 				}
 			});
 
 			/*var btn = document.querySelectorAll('button');
-			var i = 0, len = btn.length;
-			var event = BASE.COM.Cardview.utils.hasTouch ? 'touchstart' : 'click';
-			for(; i < len; i++){
-				(function(_i) {
-					btn[_i].addEventListener(event, function(e) {
-						var x = this.getAttribute('data-btn'), y;
-						switch(x) {
-							case "1":
-								app.next = true;
-								break;
-							case "2":
-								app.next = false;
-								break;
-							case "3":
-								app.prev = true;
-								break;
-							case "4":
-								app.prev = false;
-								break;
-							case "5":
-								app.loop = true;
-								break;
-							case "6":
-								app.loop = false;
-								break;
-							default:
-								y = this.getAttribute('data-page');
-								app._gotoPage(y);
-								break;
-						}
-						//						console.log(app)
-					}, false)
-				}(i))
-			}*/
+			 var i = 0, len = btn.length;
+			 var event = BASE.COM.Cardview.utils.hasTouch ? 'touchstart' : 'click';
+			 for(; i < len; i++){
+			 (function(_i) {
+			 btn[_i].addEventListener(event, function(e) {
+			 var x = this.getAttribute('data-btn'), y;
+			 switch(x) {
+			 case "1":
+			 app.next = true;
+			 break;
+			 case "2":
+			 app.next = false;
+			 break;
+			 case "3":
+			 app.prev = true;
+			 break;
+			 case "4":
+			 app.prev = false;
+			 break;
+			 case "5":
+			 app.loop = true;
+			 break;
+			 case "6":
+			 app.loop = false;
+			 break;
+			 default:
+			 y = this.getAttribute('data-page');
+			 app._gotoPage(y);
+			 break;
+			 }
+			 //						console.log(app)
+			 }, false)
+			 }(i))
+			 }*/
 		}
 
 		//
@@ -102,16 +103,16 @@
 	<article class="CardviewPage CardviewPage-6">
 		<h1>6</h1>
 	</article>
-    <article class="CardviewPage CardviewPage-7">
+	<article class="CardviewPage CardviewPage-7">
 		<h1>7</h1>
 	</article>
-    <article class="CardviewPage CardviewPage-8">
+	<article class="CardviewPage CardviewPage-8">
 		<h1>8</h1>
 	</article>
-    <article class="CardviewPage CardviewPage-9">
+	<article class="CardviewPage CardviewPage-9">
 		<h1>9</h1>
 	</article>
-    <article class="CardviewPage CardviewPage-10">
+	<article class="CardviewPage CardviewPage-10">
 		<h1>10</h1>
 	</article>
 </section>
