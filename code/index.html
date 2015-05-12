@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<title>Cardview</title>
+	<link rel="stylesheet" href="css/common.css"/>
+	<script type="text/javascript" src="js/BASE.js"></script>
+	<script type="text/javascript">
+		function loaded() {
+			var app = LOMARK.COM.Cardview.init({
+				startPage  : 3,
+				loopPage : false,
+				//scale    : 1,
+				callback : function(a) {
+					//					console.log(a)
+				}
+			});
+
+			/*var btn = document.querySelectorAll('button');
+			var i = 0, len = btn.length;
+			var event = LOMARK.COM.Cardview.utils.hasTouch ? 'touchstart' : 'click';
+			for(; i < len; i++){
+				(function(_i) {
+					btn[_i].addEventListener(event, function(e) {
+						var x = this.getAttribute('data-btn'), y;
+						switch(x) {
+							case "1":
+								app.next = true;
+								break;
+							case "2":
+								app.next = false;
+								break;
+							case "3":
+								app.prev = true;
+								break;
+							case "4":
+								app.prev = false;
+								break;
+							case "5":
+								app.loop = true;
+								break;
+							case "6":
+								app.loop = false;
+								break;
+							default:
+								y = this.getAttribute('data-page');
+								app._gotoPage(y);
+								break;
+						}
+						//						console.log(app)
+					}, false)
+				}(i))
+			}*/
+		}
+
+		//
+
+	</script>
+</head>
+<body onload="loaded()">
+<section id="CardviewWrapper">
+	<article class="CardviewPage CardviewPage-1">
+		<h1>1</h1>
+		<!--<p>
+			<button data-page="4">切换到第四页</button>
+		</p>
+		<p>
+			<button data-btn="5">开启循环翻页</button>
+		</p>
+		<p>
+			<button data-btn="6">禁用循环翻页</button>
+		</p>-->
+	</article>
+	<article class="CardviewPage CardviewPage-2">
+		<h1>2</h1>
+		<!--<p>
+			<button data-btn="1">开启向下翻页</button>
+		</p>
+		<p>
+			<button data-btn="2">禁用向下翻页</button>
+		</p>-->
+	</article>
+	<article class="CardviewPage CardviewPage-3">
+		<h1>3</h1>
+		<!--<p>
+			<button data-btn="3">开启向上翻页</button>
+		</p>
+		<p>
+			<button data-btn="4">禁用向上翻页</button>
+		</p>-->
+	</article>
+	<article class="CardviewPage CardviewPage-4">
+		<h1>4</h1>
+	</article>
+	<article class="CardviewPage CardviewPage-5">
+		<h1>5</h1>
+		<!--<p>
+			<button data-page="1">切换到第一页</button>
+		</p>-->
+	</article>
+	<article class="CardviewPage CardviewPage-6">
+		<h1>6</h1>
+	</article>
+    <article class="CardviewPage CardviewPage-7">
+		<h1>7</h1>
+	</article>
+    <article class="CardviewPage CardviewPage-8">
+		<h1>8</h1>
+	</article>
+    <article class="CardviewPage CardviewPage-9">
+		<h1>9</h1>
+	</article>
+    <article class="CardviewPage CardviewPage-10">
+		<h1>10</h1>
+	</article>
+</section>
+</body>
+</html>
