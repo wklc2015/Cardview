@@ -1,21 +1,21 @@
 /*
  * ---------------------------------------------
  * website:
- * filename: LOMARK.js
+ * filename: BASE.js
  * revision: 1.0
  * createdate: 2014-09-17 17:22
  * author: lc
  * description: 
  * ---------------------------------------------
  */
-var LOMARK = LOMARK || {};
+var BASE = BASE || {};
 /**
  * 命名空间函数
  * */
-LOMARK.namespace = function(_name) {
-	var parts = _name.split('.'), i, size, parent = LOMARK;
+BASE.namespace = function(_name) {
+	var parts = _name.split('.'), i, size, parent = BASE;
 	//去掉全局变量
-	if(parts[0] === 'LOMARK'){
+	if(parts[0] === 'BASE'){
 		parts = parts.slice(1);
 	}
 	size = parts.length;
@@ -33,8 +33,8 @@ LOMARK.namespace = function(_name) {
 /*
  * Cardview 滑动模块
  * */
-LOMARK.namespace('LOMARK.COM.Cardview');
-LOMARK.COM.Cardview = (function() {
+BASE.namespace('BASE.COM.Cardview');
+BASE.COM.Cardview = (function() {
 	var
 		init = function(options) {
 			return new App(options);
